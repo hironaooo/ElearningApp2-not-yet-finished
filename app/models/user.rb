@@ -8,5 +8,15 @@ class User < ApplicationRecord
                                     uniqueness: { case_sensitive:false }
   has_secure_password
   validates :password, length: { minimum:6 }, allow_nil: true
+
+  mount_uploader :picture, PicturesUploader
+
+  validate :picture_size
+ 
+  def picture_size
+    if picture.size > 5.megabytes
+        errors.add(:picture, "should be less than 5MB")
+    end
+  end
   
 end

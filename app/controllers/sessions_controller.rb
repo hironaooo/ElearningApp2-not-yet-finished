@@ -12,7 +12,6 @@ class SessionsController < ApplicationController
     else
       flash[:danger] = "Invalid Credentials. Please log in again!"
       render 'new'
-      redirect_to root_url
     end
   end
 
