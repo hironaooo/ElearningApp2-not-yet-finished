@@ -1,0 +1,40 @@
+<div class="jumbotron backgroundimg3 jumbotron-fluid mb-0 p-0">
+    <div class="div_opasity">
+        <div class="container">
+            <h1 class="text-center mb-3 pt-2">Users</h1>
+            <% unless @users.any? %>
+                <h4>Nothing to display</h2>
+            <% else %>
+                <div class="row">
+                    <% @users.each do |user| %>
+                        <div class="col-lg-6">
+                            <div class="media">
+                                <div class="media-body">
+                                    <div class="jumbotron p-1 mb-2">
+                                        <div class="row">
+                                            <div class="col-lg-3">
+                                            <% if user.picture.blank? %>
+                                                <%= image_tag '/images/default.png', class:'rounded-circle ml-4 small-image' %>
+                                            <% else %>
+                                                <%= image_tag user.picture.to_s, class:'rounded-circle ml-4 small-image'%>
+                                            <% end %>
+                                            </div>
+                                            <div class="col-lg-6 d-flex align-items-center">
+                                                <h4><%= link_to user.name, user %></h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <% end %>
+                </div>
+            <% end %> 
+            <div class= "pt-3 text-center paginate">
+                <%= will_paginate %>
+            </div>
+        </div>
+    </div>   
+</div>
+
+ 

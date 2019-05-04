@@ -1,0 +1,40 @@
+<div class="jumbotron backgroundimg3 jumbotron-fluid mb-0 p-0">
+    <div class="div_opasity">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mt-3">
+                    <div class="card mb-3">
+                        <div class="card-body text-center">
+                            <% if @user.picture.blank? %>
+                                <%= image_tag '/images/default.png', class:'rounded-circle large-image mb-2' %>
+                            <% else %>
+                                <%= image_tag @user.picture.to_s, class:'rounded-circle large-image mb-2'%>
+                            <% end %>
+                            <h1><%= @user.name %></h1>
+                            <%= @user.email %><hr>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8 mt-3">
+                    <div class="card">
+                        <div class="card-header">
+                            <h2>Profile / Acitivity Feed</h2>  
+                        </div>
+                        <div class="card-body">
+                            <blockquote class="blockquote mb-0">
+                                <table class="table table-striped">
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </blockquote>
+                        </div>
+                    </div>
+                    <div class="pt-3">
+                    </div>    
+                </div>      
+            </div>
+        </div>
+    </div>
+</div>
+    
+
